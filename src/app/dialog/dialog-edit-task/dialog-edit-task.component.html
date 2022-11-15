@@ -1,0 +1,43 @@
+<form #f="ngForm" class="dialog-container" novalidate>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+    <h1 mat-dialog-title>Edit Task</h1>
+    <div mat-dialog-content class="mat-dialog-content">
+        <div class="container w-100">
+            <mat-form-field id="title" appearance="outline">
+                <mat-label>Enter a title</mat-label>
+                <input [(ngModel)]="task.title" name="title" matInput [disabled]="loading" placeholder="Enter a Title"
+                    required>
+            </mat-form-field>
+
+            <mat-form-field id="description" appearance="outline">
+                <mat-label>Enter a description</mat-label>
+                <textarea [(ngModel)]="task.description" name="description" matInput [disabled]="loading"
+                    required></textarea>
+            </mat-form-field>
+
+            <mat-form-field id="category" appearance="outline">
+                <mat-label> Select a Category</mat-label>
+                <mat-select [(ngModel)]="task.category" name="category" [disabled]="loading" required>
+                    <mat-option value="Administration">Administration</mat-option>
+                    <mat-option value="Sales">Sales</mat-option>
+                    <mat-option value="Marketing">Marketing</mat-option>
+                    <mat-option value="Finances">Finances</mat-option>
+                    <mat-option value="IT">IT</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button class="button-cancel" [disabled]="loading" mat-button (click)="dialogRef.close()">
+            <span>Clear</span>
+            <mat-icon fontIcon="close"></mat-icon>
+        </button>
+        <button type="submit" class="button-save" [disabled]="!f.form.valid || loading" (click)="save()" mat-button
+            cdkFocusInitial>
+            <span>Edit Task</span>
+            <mat-icon fontIcon="check"></mat-icon>
+        </button>
+    </div>
+
+</form>

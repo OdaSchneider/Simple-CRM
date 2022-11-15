@@ -1,0 +1,71 @@
+<div class="container-component">
+    <div class="container-pos-rel">
+        <mat-card class="user-detail-head" [ngStyle]="{'background-color': contact.color}">
+            <div class="center">
+                <div class="user-details">
+                    <h2>{{ contact.firstName }} {{ contact.lastName }}</h2>
+                    <a href="mailto: {{contact.email}}">{{ contact.email }}</a>
+                    <a href="tel: {{contact.phone}}">{{ contact.phone }}</a>
+                </div>
+    
+                <button mat-icon-button [matMenuTriggerFor]="userMenu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #userMenu="matMenu">
+                    <button mat-menu-item (click)="editContactDetail()">Edit</button>
+                    <!-- <button mat-menu-item (click)="deleteContact()">Delete</button> -->
+                </mat-menu>
+            </div>
+        </mat-card>
+    
+        <mat-card *ngIf="(contact.street || contact.city || contact.country) !=''" class="mt-32 user-detail-info">
+            <mat-card-title>
+                Address
+            </mat-card-title>
+            <mat-card-content class="adress">
+                <span>{{ contact.street }}</span> <br>
+                <span>{{ contact.zipCode }} {{ contact.city }}</span> <br>
+                <span>{{ contact.country }}</span>
+            </mat-card-content>
+    
+            <button mat-icon-button [matMenuTriggerFor]="addressMenu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #addressMenu="matMenu">
+                <button mat-menu-item (click)="editAddress()">Edit</button>
+            </mat-menu>
+        </mat-card>
+    
+        <mat-card class="mt-32 user-detail-info">
+            <mat-card-title>
+                Department
+            </mat-card-title>
+            <mat-card-content>
+                <span>{{ contact.department }}</span>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card *ngIf="assignedTask" class="mt-32 user-detail-info">
+            <mat-card-title>
+                Assigned Tasks
+            </mat-card-title>
+            <mat-card-content *ngFor="let task of tasks" class="assignedTasks">
+                <span [routerLink]="['/mainpage/addTask/' + task.taskId]">{{ task.title }}</span>
+            </mat-card-content>
+        </mat-card>
+    
+        <div class="container-active-bottom mt-32">        
+            <button mat-mini-fab matTooltip="Back to board" matTooltipPosition="above" [routerLink]="['/mainpage/board/']">
+                <mat-icon>dashboard</mat-icon>
+            </button>
+            <button mat-mini-fab matTooltip="Back to contacts" matTooltipPosition="above" [routerLink]="['/mainpage/contacts/']">
+                <mat-icon>perm_contact_cal</mat-icon>
+            </button>
+            <button mat-mini-fab matTooltip="Delete contact" matTooltipPosition="above" (click)="deleteContact()"
+                [routerLink]="['/mainpage/contacts/']">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
+    
+</div>

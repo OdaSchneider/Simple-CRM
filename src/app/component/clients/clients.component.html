@@ -1,0 +1,35 @@
+<div class="container-component">
+    <div class="container-head">
+        <div class="container-headline">
+            <h1>Clients</h1>
+            <p>Build your Network</p>
+        </div>
+
+        <div class="container-active">
+            <div class="searchfield">
+                <input name="search" [(ngModel)]="searchClient" placeholder="Find Client">
+                <div class="spacer"></div>
+                <mat-icon matSuffix>search</mat-icon>
+            </div>
+    
+            <button mat-button (click)="openDialogAddClient()">
+                <span>Add Client</span>
+                <mat-icon matSuffix>add</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <div class="container-content">
+        <mat-card class="is-empty-note" *ngIf="allClients.length == 0">
+            You have no clients yet. Use the button above to add your clients.
+        </mat-card>
+
+
+        <mat-card *ngFor="let client of allClients | filter:searchClient" [routerLink]="['/mainpage/clients/' + client.clientId]">
+            <p>{{ client.clientName}}</p>
+            <p>{{ client.email }}</p>
+            <p>{{ client.phone }}</p>
+            <p>{{ client.website }}</p>
+        </mat-card>
+    </div>
+</div>

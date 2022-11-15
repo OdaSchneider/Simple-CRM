@@ -1,0 +1,109 @@
+<form #f="ngForm" class="dialog-container" novalidate>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+    <h1 mat-dialog-title>Add Client</h1>
+    <div mat-dialog-content>
+        <div>
+            <h3>General Information</h3>
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Company Name</mat-label>
+                    <input [(ngModel)]="client.company" name="company" matInput placeholder="Company name"
+                        [disabled]="loading" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="mr-16 w-50" appearance="outline">
+                    <mat-label>Type of Business</mat-label>
+                    <input [(ngModel)]="client.clientType" name="clientType" matInput
+                        placeholder="Ex. service provider " [disabled]="loading">
+                </mat-form-field>
+                <mat-form-field class="w-50" appearance="outline">
+                    <mat-label>Company Size</mat-label>
+                    <mat-select [(ngModel)]="client.companySize" name="size" [disabled]="loading">
+                        <mat-option value="Start-up">Start-up</mat-option>
+                        <mat-option value="Small business">Small Business</mat-option>
+                        <mat-option value="Medium-sized Company">Medium-sized Company</mat-option>
+                        <mat-option value="Big Business">Big Business</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Website</mat-label>
+                    <input [(ngModel)]="client.website" name="website" matInput placeholder="website"
+                        [disabled]="loading">
+                </mat-form-field>
+            </div>
+        </div>
+        <div>
+            <h3>Contact Information</h3>
+            <div>
+                <mat-form-field class="mr-16 w-50" appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input [(ngModel)]="client.contactFirstName" name="firstName" matInput placeholder="Name"
+                        [disabled]="loading">
+                </mat-form-field>
+                <mat-form-field class="w-50" appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input [(ngModel)]="client.contactLastName" name="lastName" matInput placeholder="Name"
+                        [disabled]="loading">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="mr-16 w-50" appearance="outline">
+                    <mat-label>E-mail</mat-label>
+                    <input [(ngModel)]="client.email" name="email" matInput placeholder="example@mail.com"
+                        [disabled]="loading">
+                    <mat-icon [ngStyle]="{'color':'#757575'}" matSuffix>mail</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="w-50" appearance="outline">
+                    <mat-label>Phone number</mat-label>
+                    <input [(ngModel)]="client.phone" name="phone" matInput placeholder="Phone number"
+                        [disabled]="loading">
+                    <mat-icon [ngStyle]="{'color':'#757575'}" matSuffix>phone</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div>
+            <h3>Address</h3>
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Street and House No.</mat-label>
+                    <input [(ngModel)]="client.street" name="street" matInput placeholder="Main street 456" [disabled]="loading">
+                    <mat-icon [ngStyle]="{'color':'#757575'}" matSuffix>home</mat-icon>
+                </mat-form-field>
+            </div>
+    
+            <div>
+                <mat-form-field class="mr-16" appearance="outline">
+                    <mat-label>Zip code</mat-label>
+                    <input [(ngModel)]="client.zipCode" name="zipCode" matInput placeholder="46228" [disabled]="loading">
+                </mat-form-field>
+                <mat-form-field class="mr-16" appearance="outline">
+                    <mat-label>City</mat-label>
+                    <input [(ngModel)]="client.city" name="city" matInput placeholder="Manvel, Texas" [disabled]="loading">
+                </mat-form-field>
+                <mat-form-field class="mr-16" appearance="outline">
+                    <mat-label>Country</mat-label>
+                    <input [(ngModel)]="client.country" name="country" matInput placeholder="Manvel, Texas" [disabled]="loading">
+                </mat-form-field>
+            </div>
+        </div>
+
+    </div>
+    <div mat-dialog-actions>
+        <button class="button-cancel" [disabled]="loading" mat-button (click)="dialogRef.close()">
+            <span>Clear</span>
+            <mat-icon fontIcon="close"></mat-icon>
+        </button>
+        <button type="submit" class="button-save" [disabled]="!f.form.valid || loading" (click)="save()" mat-button
+            cdkFocusInitial>
+            <span>Edit</span>
+            <mat-icon fontIcon="check"></mat-icon>
+        </button>
+    </div>
+
+</form>

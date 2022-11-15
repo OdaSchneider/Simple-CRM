@@ -1,0 +1,106 @@
+.container-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+
+    .container-headline{
+        display: flex;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 48px;
+        font-weight: bold;
+        border-right: 2px solid #29ABE2;
+        margin: unset;
+        padding-right: 32px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    p{
+        margin: unset;
+        font-size: 24px;
+        margin-left: 32px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        height: 32px;
+        background-color: #2A3647;
+        color: white;
+        padding: 4px;
+        border: unset;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 125ms ease-in-out;
+
+        mat-icon {
+            margin-left: 8px;
+        }
+
+        &:hover {
+            background-color: #29ABE2;
+            transition: all 125ms ease-in-out;
+        }
+    }
+}
+
+.container-content{
+
+    .is-empty-note{
+        cursor: default;
+
+        &:hover{
+            background-color: white;
+        }
+    }
+
+    mat-card{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 16px 0px;
+        cursor: pointer;
+        transition: all 125ms ease-in-out;
+
+        &:hover{
+            background-color: #e6e6e6;
+            transition: all 125ms ease-in-out;
+        }
+
+        span{
+            padding: 8px;
+            border-radius: 100px;
+            color: white;
+            mix-blend-mode: multiply;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 32px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        p{
+            margin: unset;
+            width: 30%;
+        }
+
+        .material-icons{
+            font-size: 22px;
+            cursor: pointer;
+        }
+    }
+}
+
+.container-active{
+    display: flex;
+    align-items: center;
+}

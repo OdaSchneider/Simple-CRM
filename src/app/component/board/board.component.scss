@@ -1,0 +1,205 @@
+.container-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        font-size: 48px;
+        font-weight: bold;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        height: 32px;
+        background-color: #2A3647;
+        color: white;
+        padding: 4px;
+        border: unset;
+        border-radius: 5px;
+        cursor: pointer;
+
+        mat-icon {
+            margin-left: 8px;
+        }
+
+        &:hover {
+            background-color: #29ABE2;
+        }
+    }
+}
+
+.dropList{
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.container-content{
+    display: flex;
+    justify-content: space-between;
+
+    .container-task-status {
+        width: calc(25% - 64px);
+        padding: 32px;
+        margin-top: 100px;
+
+        mat-card {
+            margin-bottom: 16px;
+            border-radius: 10px;
+
+            &:hover{
+                background-color: #eeeeee;
+            }
+        }
+
+        .container-task-status-headline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+
+            h2 {
+                margin: unset;
+            }
+
+            img {
+                width: 24px;
+                height: 24px;
+                object-fit: contain;
+                cursor: pointer;
+
+                &:hover {
+                    filter: contrast(0.3);
+                }
+            }
+        }
+
+        .container-task-content {
+            position: relative;
+
+            .category {
+                margin-bottom: 16px;
+                color: white;
+                font-weight: 500;
+                width: 100px;
+                text-align: center;
+                padding: 6px;
+                border-radius: 10px;
+            }
+
+            .task-info {
+                margin-bottom: 16px;
+
+                p {
+                    font-weight: 500;
+                    margin-bottom: 8px
+                }
+
+                .task-description{
+                    max-height: 50px;
+                    overflow: auto;
+                }
+            }
+
+            .task-contacts {
+                display: flex;
+                align-items: center;
+                width: 80%;
+                overflow: auto;
+
+                span {
+                    padding: 8px;
+                    border-radius: 100px;
+                    font-size: 10px;
+                    color: white;
+                    font-weight: 500;
+                    width: 36px;
+                    height: 36px;
+                    margin-right: -16px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            img {
+                position: absolute;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+    }
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+                
+    .category {
+        margin-bottom: 16px;
+        color: white;
+        font-weight: 500;
+        width: 100px;
+        text-align: center;
+        padding: 6px;
+        border-radius: 10px;
+    }
+
+    .task-info {
+        margin-bottom: 16px;
+
+        p {
+            font-weight: 500;
+            margin-bottom: 8px
+        }
+
+        .task-description{
+            max-height: 50px;
+            overflow: auto;
+        }
+    }
+
+    .task-contacts {
+        display: flex;
+        align-items: center;
+        width: 80%;
+        overflow: auto;
+
+        span {
+            padding: 8px;
+            border-radius: 100px;
+            font-size: 10px;
+            color: white;
+            font-weight: 500;
+            width: 36px;
+            height: 36px;
+            margin-right: -16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    img {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+    }
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .dropList.cdk-drop-list-dragging .box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+

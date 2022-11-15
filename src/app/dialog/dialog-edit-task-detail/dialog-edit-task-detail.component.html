@@ -1,0 +1,46 @@
+<form #f="ngForm" class="dialog-container" novalidate>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+    <h1 mat-dialog-title>Edit Task</h1>
+    <div mat-dialog-content class="mat-dialog-content">
+        <div class="container w-100 mt-32">
+
+            <label for="prio">Prio</label>
+            <mat-button-toggle-group class="prio" [(ngModel)]="task.prio" [ngModelOptions]="{standalone: true}">
+                <mat-button-toggle value="urgent" [disabled]="loading">
+                    <span>Urgent</span>
+                    <img src="./../../assets/img/urgent.png">
+                </mat-button-toggle>
+                <mat-button-toggle value="medium" [disabled]="loading">
+                    <span>Medium</span>
+                    <img src="./../../assets/img/medium.png">
+                </mat-button-toggle>
+                <mat-button-toggle value="low" [disabled]="loading">
+                    <span>Low</span>
+                    <img src="./../../assets/img/low.png">
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+
+            <mat-form-field id="date" class="example-full-width mt-32" appearance="outline">
+                <mat-label>Choose a date</mat-label>
+                <input [(ngModel)]="dueDate" name="dueDate" matInput [matDatepickerFilter]="myFilter"
+                    [matDatepicker]="picker" [disabled]="loading" required 
+                    placeholder="Value binding" [value]="task.dueDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button class="button-cancel" [disabled]="loading" mat-button (click)="dialogRef.close()">
+            <span>Clear</span>
+            <mat-icon fontIcon="close"></mat-icon>
+        </button>
+        <button type="submit" class="button-save" [disabled]="!f.form.valid || loading" (click)="save()" mat-button
+            cdkFocusInitial>
+            <span>Edit Task</span>
+            <mat-icon fontIcon="check"></mat-icon>
+        </button>
+    </div>
+
+</form>

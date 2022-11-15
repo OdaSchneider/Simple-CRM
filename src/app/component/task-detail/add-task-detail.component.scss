@@ -1,0 +1,145 @@
+.container-pos-rel{
+    position:relative;
+    height: 100%;
+}
+
+.container-return {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    mat-icon {
+        color: #2A3647;
+        cursor: pointer;
+        margin-left: 12px;
+
+        &:hover {
+            color: #29ABE2;
+        }
+    }
+
+    .material-icons {
+        font-size: 26px;
+    }
+}
+
+.container-active-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    button {
+        background-color: #2A3647;
+        margin-left: 12px;
+
+        &:hover {
+            background-color: #29ABE2;
+        }
+    }
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.mb-16 {
+    margin-bottom: 16px;
+}
+
+.mb-8 {
+    margin-bottom: 8px;
+}
+
+h3,
+p {
+    margin: unset;
+}
+
+h3 {
+    font-weight: 700;
+    margin-right: 16px;
+}
+
+span,
+p {
+    font-size: 16px;
+}
+
+.category {
+    color: white;
+    font-weight: 500;
+    width: 100px;
+    text-align: center;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.task-info {
+
+    position: relative;
+
+    button{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    h1 {
+        font-weight: 500;
+        font-size: 32px;
+    }
+
+    .task-description {
+        max-height: 80px;
+        overflow: auto;
+        margin-bottom: 24px;
+    }
+
+    .task-contacts {
+        .no-contacts{
+            span{
+                cursor: pointer;
+                color:#29ABE2;
+            
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .contacts {
+            max-height: 120px;
+            overflow: auto;
+            cursor: pointer;
+
+            .contact-logo {
+                padding: 8px;
+                border-radius: 100px;
+                font-size: 10px;
+                color: white;
+                font-weight: 500;
+                width: 36px;
+                height: 36px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .contact-name {
+                margin-left: 16px;
+                margin-right: 4px;
+            }
+        }
+    }
+
+    .task-prio {
+        img {
+            height: 12px;
+            margin-left: 8px;
+        }
+    }
+}

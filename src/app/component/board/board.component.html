@@ -1,0 +1,143 @@
+<div class="container-component">
+
+    <div class="container-head">
+        <h1>Board</h1>
+        <div class="container-head">
+            <div class="searchfield">
+                <input name="search" [(ngModel)]="search" placeholder="Find Task">
+                <div class="spacer"></div>
+                <mat-icon matSuffix>search</mat-icon>
+            </div>
+            <div>
+                <button mat-button (click)="openDialogAddTask()">
+                    <span>Add Task</span>
+                    <mat-icon matSuffix>add</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div cdkDropListGroup class="container-content">
+        <div class="container-task-status">
+            <div class="container-task-status-headline">
+                <h2>To do</h2>
+            </div>
+
+            <div cdkDropList [cdkDropListData]="todo" class="dropList" (cdkDropListDropped)="drop($event)">
+                <div class="container-task-content" *ngFor="let task of todo | filter:search" cdkDrag>
+                    <mat-card [routerLink]="['/mainpage/addTask/' + task.taskId]">
+                        <div class="category" [ngClass] = "task.category">
+                            {{ task.category }}
+                        </div>
+                        <div class="task-info">
+                            <p>{{ task.title }}</p>
+                            <div class="task-description">
+                                <span>{{ task.description }}</span>
+                            </div>
+                        </div>
+                        <div class="task-contacts">
+                            <span *ngFor="let contact of task.contacts.slice(0, 2)" [ngStyle]="{'background-color': contact.color}">
+                                {{ contact.firstName.charAt(0) }} {{ contact.lastName.charAt(0) }}
+                            </span>
+                            <span *ngIf="task.contacts.length>2" [ngStyle]="{'background-color': 'gray'}">
+                                + {{ task.contacts.length-2 }}
+                            </span>
+                        </div>
+                        <img src="./../../assets/img/{{ task.prio }}.png">
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-task-status">
+            <div class="container-task-status-headline">
+                <h2>In progress</h2>
+            </div>
+            <div cdkDropList [cdkDropListData]="inProgress" class="dropList" (cdkDropListDropped)="drop($event)">
+                <div class="container-task-content" *ngFor="let task of inProgress | filter:search" cdkDrag>
+                    <mat-card [routerLink]="['/mainpage/addTask/' + task.taskId]">
+                        <div class="category" [ngClass] = "task.category">
+                            {{ task.category }}
+                        </div>
+                        <div class="task-info">
+                            <p>{{ task.title }}</p>
+                            <div class="task-description">
+                                <span>{{ task.description }}</span>
+                            </div>
+                        </div>
+                        <div class="task-contacts">
+                            <span *ngFor="let contact of task.contacts.slice(0, 2)" [ngStyle]="{'background-color': contact.color}">
+                                {{ contact.firstName.charAt(0) }} {{ contact.lastName.charAt(0) }}
+                            </span>
+                            <span *ngIf="task.contacts.length>2" [ngStyle]="{'background-color': 'gray'}">
+                                + {{ task.contacts.length-2 }}
+                            </span>
+                        </div>
+                        <img src="./../../assets/img/{{ task.prio }}.png">
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-task-status">
+            <div class="container-task-status-headline">
+                <h2>Testing</h2>
+            </div>
+            <div cdkDropList [cdkDropListData]="testing" class="dropList" (cdkDropListDropped)="drop($event)">
+                <div class="container-task-content" *ngFor="let task of testing | filter:search" cdkDrag>
+                    <mat-card [routerLink]="['/mainpage/addTask/' + task.taskId]">
+                        <div class="category" [ngClass] = "task.category">
+                            {{ task.category }}
+                        </div>
+                        <div class="task-info">
+                            <p>{{ task.title }}</p>
+                            <div class="task-description">
+                                <span>{{ task.description }}</span>
+                            </div>
+                        </div>
+                        <div class="task-contacts">
+                            <span *ngFor="let contact of task.contacts.slice(0, 2)" [ngStyle]="{'background-color': contact.color}">
+                                {{ contact.firstName.charAt(0) }} {{ contact.lastName.charAt(0) }}
+                            </span>
+                            <span *ngIf="task.contacts.length>2" [ngStyle]="{'background-color': 'gray'}">
+                                + {{ task.contacts.length-2 }}
+                            </span>
+                        </div>
+                        <img src="./../../assets/img/{{ task.prio }}.png">
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+        <div class="container-task-status">
+            <div class="container-task-status-headline">
+                <h2>Done</h2>
+            </div>
+            <div cdkDropList [cdkDropListData]="done" class="dropList" (cdkDropListDropped)="drop($event)">
+                <div class="container-task-content" *ngFor="let task of done| filter:search" cdkDrag>
+                    <mat-card [routerLink]="['/mainpage/addTask/' + task.taskId]">
+                        <div class="category" [ngClass] = "task.category">
+                            {{ task.category }}
+                        </div>
+                        <div class="task-info">
+                            <p>{{ task.title }}</p>
+                            <div class="task-description">
+                                <span>{{ task.description }}</span>
+                            </div>
+                        </div>
+                        <div class="task-contacts">
+                            <span *ngFor="let contact of task.contacts.slice(0, 2)" [ngStyle]="{'background-color': contact.color}">
+                                {{ contact.firstName.charAt(0) }} {{ contact.lastName.charAt(0) }}
+                            </span>
+                            <span *ngIf="task.contacts.length>2" [ngStyle]="{'background-color': 'gray'}">
+                                + {{ task.contacts.length-2 }}
+                            </span>
+                        </div>
+                        <img src="./../../assets/img/{{ task.prio }}.png">
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

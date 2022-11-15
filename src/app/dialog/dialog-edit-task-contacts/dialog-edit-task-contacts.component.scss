@@ -1,0 +1,68 @@
+input, label {
+    display:block;
+}
+
+.mat-dialog-content{
+    margin: 32px -24px;
+    p{
+        font-weight: 500;
+    }
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-dialog-actions{
+    justify-content: end;
+    margin-top: 24px;
+
+    .button-save{
+        color: white;
+        background-color: #2A3647;
+
+        &:hover{
+            background-color: #29ABE2;
+        }
+
+        &:disabled{
+            background-color:#cdcdcd;
+        }
+    }
+
+    .button-cancel{
+        border: 1px solid #2A3647;
+
+        &:disabled{
+            border: 1px solid #cdcdcd;
+        }
+    }
+
+    mat-icon{
+        height: 18px;
+        width: 16px;
+        margin-left: 8px;
+    }
+
+    .material-icons{
+        font-size: 17px;
+    }
+}
+
+.container-assigned-contact{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p{
+        margin: unset;
+        margin-right: 16px;
+    }
+
+    mat-icon{
+        &:hover{
+            color:#29ABE2;
+        }
+    }
+}

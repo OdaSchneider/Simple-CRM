@@ -1,0 +1,37 @@
+<div class="container-component">
+    <div class="container-head">
+        <div class="container-headline">
+            <h1>Contacts</h1>
+            <p>Better with a Team</p>
+        </div>
+
+        <div class="container-active">
+            <div class="searchfield">
+                <input name="search" [(ngModel)]="searchContact" placeholder="Find Contact">
+                <div class="spacer"></div>
+                <mat-icon matSuffix>search</mat-icon>
+            </div>
+    
+            <button mat-button (click)="openDialogAddContact()">
+                <span>Add Contact</span>
+                <mat-icon matSuffix>add</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <div class="container-content">
+        <mat-card class="is-empty-note" *ngIf="allContacts.length == 0">
+            You have no contacts yet. Use the button above to add your contacts.
+        </mat-card>
+
+
+        <mat-card *ngFor="let contact of allContacts | filter:searchContact" [routerLink]="['/mainpage/contacts/' + contact.customIdName]">
+            <span [ngStyle]="{'background-color': contact.color}">
+                {{ contact.firstName.charAt(0) }} {{ contact.lastName.charAt(0) }}
+            </span>
+            <p>{{ contact.firstName }} {{ contact.lastName }}</p>
+            <p>{{ contact.email }}</p>
+            <p>{{ contact.phone }}</p>
+        </mat-card>
+    </div>
+</div>

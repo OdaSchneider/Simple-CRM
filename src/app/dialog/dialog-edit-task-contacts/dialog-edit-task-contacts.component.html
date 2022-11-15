@@ -1,0 +1,36 @@
+<form #f="ngForm" class="dialog-container" novalidate>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+    <h1 mat-dialog-title>Edit Task - Contacts</h1>
+    <div class="mat-dialog-content mb-32">
+        <p>Assigned to:</p>
+        <div class="container-assigned-contact mb-8" *ngFor="let contact of task.contacts">
+            <span>{{ contact.firstName }} {{ contact.lastName }}</span>
+        </div>
+    </div>
+    <div mat-dialog-content class="mat-dialog-content">
+        <p>Change assignment</p>
+        <div class="container w-100">
+            <mat-form-field id="assigned" appearance="outline">
+                <mat-label> Select Contacts to assign</mat-label>
+                <mat-select [(ngModel)]="task.contacts" name="contacts" [disabled]="loading"
+                    [value]="task.contacts" multiple>
+                    <mat-option *ngFor="let contact of allContacts" [value]="contact">
+                        {{ contact.firstName }} {{ contact.lastName }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button class="button-cancel" [disabled]="loading" mat-button (click)="dialogRef.close()">
+            <span>Clear</span>
+            <mat-icon fontIcon="close"></mat-icon>
+        </button>
+        <button type="submit" class="button-save" [disabled]="!f.form.valid || loading" (click)="save()" mat-button
+            cdkFocusInitial>
+            <span>Edit Task</span>
+            <mat-icon fontIcon="check"></mat-icon>
+        </button>
+    </div>
+</form>

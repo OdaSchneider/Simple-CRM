@@ -1,0 +1,95 @@
+<div class="container-component">
+
+    <div class="container-pos-rel">
+        <div class="container-return mb-16">
+            <div class="category" [ngClass]="task.category">
+                {{ task.category }}
+            </div>
+        </div>
+        <mat-card>
+            <div class="task-info">
+                <h1>{{ task.title }}</h1>
+                <div class="task-description">
+                    <span>{{ task.description }}</span>
+                </div>
+                <button mat-icon-button [matMenuTriggerFor]="taskInfo">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #taskInfo="matMenu">
+                    <button mat-menu-item (click)="editTaskInfo()" >Edit</button>
+                </mat-menu>
+            </div>
+        </mat-card>
+        <mat-card class="mt-32">
+            <div class="task-info">
+                <div class="task-date flex mb-16">
+                    <h3>Due Date:</h3>
+                    <div>
+                        <p>{{ date }}</p>
+                    </div>
+                </div>
+                <div class="task-prio flex mb-16">
+                    <h3>Priority:</h3>
+                    <div class="flex">
+                        <p>{{task.prio}}</p>
+                    </div>
+                </div>
+                <button mat-icon-button [matMenuTriggerFor]="taskDetail">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #taskDetail="matMenu">
+                    <button mat-menu-item (click)=" editTaskDetail()">Edit</button>
+                </mat-menu>
+            </div>
+        </mat-card>
+        <mat-card class="mt-32">
+            <div class="task-info">
+                <div class="task-contacts">
+                    <h3 class="mb-8">Assigned to:</h3>
+                    <div class="no-contacts" *ngIf="task.contacts == []">
+                        <p>You did'nt add a contact yet. You can add a contact 
+                            <span (click)="editTaskContacts()">here</span> or 
+                            <span (click)="openDialogAddContact()">creat a contact</span></p>
+                    </div>
+                    <div class="contacts">
+                        <p class="flex mb-8" *ngFor="let contact of task.contacts"
+                            [routerLink]="['/mainpage/contacts/' + contact.contactId]">
+                            <span class="contact-logo" [ngStyle]="{'background-color': contact.color}">
+                                {{ contact.firstName.charAt(0) }} {{ contact.lastName.charAt(0) }}
+                            </span>
+                            <span class="contact-name">{{ contact.firstName }}</span>
+                            <span>{{ contact.lastName }}</span>
+                        </p>
+                    </div>
+                </div>
+                <button class="menu-button" mat-icon-button [matMenuTriggerFor]="taskContact">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #taskContact="matMenu">
+                    <button mat-menu-item (click)="editTaskContacts()">Edit</button>
+                </mat-menu>
+            </div>
+        </mat-card>
+    
+        <div class="container-active-bottom mt-32">
+            <button mat-mini-fab matTooltip="Back to board" matTooltipPosition="above" [routerLink]="['/mainpage/board/']">
+                <mat-icon>dashboard</mat-icon>
+            </button>
+            <button mat-mini-fab matTooltip="Back to contacts" matTooltipPosition="above" [routerLink]="['/mainpage/contacts/']">
+                <mat-icon>perm_contact_cal</mat-icon>
+            </button>
+            <button *ngIf="task.currentStatus !== 'todo'" mat-mini-fab matTooltip="Move Task down"
+                matTooltipPosition="above" (click)="moveTaskDown()" [routerLink]="['/mainpage/board/']">
+                <mat-icon>move_down</mat-icon>
+            </button>
+            <button *ngIf="task.currentStatus !== 'done'" mat-mini-fab matTooltip="Move Task up" matTooltipPosition="above"
+                (click)="moveTaskUp()" [routerLink]="['/mainpage/board/']">
+                <mat-icon>move_up</mat-icon>
+            </button>
+            <button mat-mini-fab matTooltip="Delete Task" matTooltipPosition="above" (click)="deleteTask()">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
+    
+</div>

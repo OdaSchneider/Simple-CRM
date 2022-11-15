@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "join-36c0e": {
+      "hosting": {
+        "Join": [
+          "join-36c0e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "join-36c0e"
+  }
+}

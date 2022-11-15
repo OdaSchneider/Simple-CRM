@@ -1,0 +1,146 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(223, 223, 223); 
+    border-radius: 3px;
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: #29ABE2; 
+    border-radius: 3px;
+  }
+
+.mr-16 {
+    margin-right: 16px;
+}
+
+.mt-32 {
+    margin-top: 32px;
+}
+
+.mb-8{
+    margin-bottom: 8px;
+}
+
+.mb-32{
+    margin-bottom: 32px;
+}
+
+.full-width{
+    width: calc(100% - 16px);
+}
+
+.w-50{
+    width: calc(50% - 16px)!important;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.container-component{
+    margin: 80px 64px;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+mat-progress-bar{
+    width: calc(100% + 48px)!important;
+    position: absolute;
+    left: -24px;
+    right: -24px;
+    top: -24px;
+}
+
+
+.searchfield {
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: white;
+    padding: 4px 8px;
+    margin-right: 32px;
+
+    input {
+        border: none;
+        outline: none;
+    }
+
+    mat-icon {
+        cursor: pointer;
+    }
+}
+
+.mat-dialog-actions{
+    justify-content: end;
+    margin-top: 24px;
+
+    .button-save{
+        color: white;
+        background-color: #2A3647;
+
+        &:hover{
+            background-color: #29ABE2;
+        }
+
+        &:disabled{
+            background-color:#cdcdcd;
+        }
+    }
+
+    .button-cancel{
+        border: 1px solid #2A3647;
+
+        &:disabled{
+            border: 1px solid #cdcdcd;
+        }
+    }
+
+    mat-icon{
+        height: 18px;
+        width: 16px;
+        margin-left: 8px;
+    }
+
+    .material-icons{
+        font-size: 17px;
+    }
+}
+
+.Marketing{
+    background-color: rgb(255 0 111);
+}
+
+.Sales{
+    background-color: rgb(255, 123, 0);
+}
+
+.Finances{
+    background-color: rgb(138 0 159);
+}
+
+.Administration{
+    background-color: rgb(0 126 7);
+}
+
+.IT{
+    background-color: #005f80;
+}

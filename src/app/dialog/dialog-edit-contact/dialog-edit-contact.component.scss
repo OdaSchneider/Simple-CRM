@@ -1,0 +1,47 @@
+.mr-16 {
+    margin-right: 16px;
+}
+
+.mt-32 {
+    margin-top: 32px;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.mat-dialog-actions{
+    justify-content: end;
+    margin-top: 24px;
+
+    .button-save{
+        color: white;
+        background-color: #2A3647;
+
+        &:hover{
+            background-color: #29ABE2;
+        }
+
+        &:disabled{
+            background-color:#cdcdcd;
+        }
+    }
+
+    .button-cancel{
+        border: 1px solid #2A3647;
+
+        &:disabled{
+            border: 1px solid #cdcdcd;
+        }
+    }
+
+    mat-icon{
+        height: 18px;
+        width: 16px;
+        margin-left: 8px;
+    }
+
+    .material-icons{
+        font-size: 17px;
+    }
+}
