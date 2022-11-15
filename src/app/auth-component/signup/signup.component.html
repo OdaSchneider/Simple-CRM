@@ -1,57 +1,44 @@
-<div class="container-login">
-  <form #f="ngForm" novalidate>
-    <mat-card class="email-login">
-      <h2>Create Account</h2>
+<div class="center-container">
+  <mat-card class="login-card">
+    <mat-card-title>Registrierung</mat-card-title>
+    <mat-card-subtitle>Registrierung mit E-mail Adresse </mat-card-subtitle>
+    <mat-card-content>
+    </mat-card-content>
 
-      <div>
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Username</mat-label>
-            <input [(ngModel)]="user.displayName" name="displayName" matInput placeholder="Name" [disabled]="loading" required>
-        </mat-form-field>
+    <form class="login-form">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" #userEmail placeholder="z.B. mail@example.com">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email wird <strong>benötigt</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Passwort</mat-label>
+        <input matInput matInput [formControl]="passwordFormControl" #userPwd placeholder="z.B. Password"
+          [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password wird <strong>benötigt</strong>
+        </mat-error>
+
+      </mat-form-field>
+      <div class="center-container">
+        <button mat-raised-button color="primary" (click)="authService.SignUp(userEmail.value, userPwd.value)">Registrieren</button>
+      </div>
+
+    </form>
+
+    <div class="center-container padding-top padding-bottom">
+      <span class="redirect" routerLink="/sign-in">Zurück zu Login</span>
     </div>
 
-      <div class="example-container">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Enter your email</mat-label>
-          <input [(ngModel)]="user.email" matInput placeholder="pat@example.com" [formControl]="email" required
-            #emailSignUp>
-          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-        </mat-form-field>
-      </div>
-
-      <div class="example-container">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Enter your password</mat-label>
-          <input [(ngModel)]="user.password" name="password" matInput [type]="hide ? 'password' : 'text'"
-            #passwordSignUp required minlength="8">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-          <mat-hint>Password needs at least 8 characters</mat-hint>
-        </mat-form-field>
-      </div>
-
-      <div class="example-container">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Verify your password</mat-label>
-          <input name="password" matInput [type]="hide ? 'password' : 'text'" #passwordSignUpVerify required minlength="8">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-          <mat-hint>Password needs at least 8 characters</mat-hint>
-        </mat-form-field>
-      </div>
-
-      <div mat-dialog-actions class="container-action">
-        <button [disabled]="loading" mat-button routerLink="/login" cdkFocusInitial>Back to Login</button>
-        
-        <button [disabled]="!f.form.valid || passwordSignUp.value != passwordSignUpVerify.value" mat-button
-          (click)="authService.signUpUser(emailSignUp.value, passwordSignUp.value)"
-          cdkFocusInitial>Sign Up</button>
-      </div>
-    </mat-card>
-  </form>
-
+  </mat-card>
 </div>

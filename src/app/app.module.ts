@@ -51,6 +51,8 @@ import { DialogEditTaskDetailComponent } from './dialog/dialog-edit-task-detail/
 import { DialogEditTaskContactsComponent } from './dialog/dialog-edit-task-contacts/dialog-edit-task-contacts.component';
 import { DialogAddClientComponent } from './dialog/dialog-add-client/dialog-add-client.component';
 import { MainpageComponent } from './component/mainpage/mainpage.component';
+import { ForgotPasswordComponent } from './auth-component/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './auth-component/verify-email/verify-email.component';
 
 
 
@@ -74,6 +76,8 @@ import { MainpageComponent } from './component/mainpage/mainpage.component';
     DialogEditTaskContactsComponent,
     DialogAddClientComponent,
     MainpageComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,36 +1,54 @@
-<div class="container-login">
-    <form #f="ngForm" novalidate>
-        <mat-card class="email-login">
-            <h2>Log In</h2>
-
-            <div class="example-container">
-                <mat-form-field appearance="outline" class="full-width">
-                    <mat-label>Enter your email</mat-label>
-                    <input [(ngModel)]="user.email" matInput placeholder="pat@example.com" [formControl]="email"
-                        required #emailSignUp>
-                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-                </mat-form-field>
-            </div>
-
-            <div class="example-container">
-                <mat-form-field appearance="outline" class="full-width">
-                    <mat-label>Enter your password</mat-label>
-                    <input [(ngModel)]="user.password" name="password" matInput [type]="hide ? 'password' : 'text'"
-                        #passwordSignUp required minlength="8">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                </mat-form-field>
-            </div>
-
-            <div mat-dialog-actions class="container-action">
-                <button [disabled]="loading" mat-button routerLink="/signup" cdkFocusInitial>Sign up</button>
-                
-                <button type="submit" [disabled]="!f.form.valid || loading" mat-button
-                    (click)="authService.signInUser(emailSignUp.value, passwordSignUp.value)" cdkFocusInitial>Login</button>
-            </div>
-
-        </mat-card>
-    </form>
-</div>
+<div class="center-container">
+    <mat-card class="login-card">
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-subtitle>Login mit E-mail oder mit Google Account möglich </mat-card-subtitle>
+      <mat-card-content>
+      </mat-card-content>
+  
+      <form class="login-form">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="emailFormControl" #userName placeholder="z.B. mail@example.com">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email wird <strong>benötigt</strong>
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Passwort</mat-label>
+          <input matInput matInput [formControl]="passwordFormControl" #userPassword placeholder="z.B. Password"
+            [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="passwordFormControl.hasError('required')">
+            Password wird <strong>benötigt</strong>
+          </mat-error>
+  
+        </mat-form-field>
+        <div class="center-container">
+          <button mat-raised-button color="primary" (click)="authService.SignIn(userName.value, userPassword.value)">Einloggen</button>
+        </div>
+  
+      </form>
+  
+      <div class="center-container padding-top padding-bottom">
+        OR
+      </div>
+      <div class="center-container">
+        <button mat-raised-button color="primary" (click)="authService.GoogleAuth()">Login mit Google</button>
+      </div>
+      <div class="center-container padding-top padding-bottom" >
+        <span routerLink="/forgot-password">Password vergessen?</span>
+      </div>
+      <div class="center-container padding-top padding-bottom">
+        Kein Account? <span routerLink="/register-user">Registrieren</span>
+      </div>
+    </mat-card>
+  </div>
+  
+  

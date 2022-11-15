@@ -8,13 +8,17 @@ import { LoginComponent } from './auth-component/login/login.component';
 import { SignupComponent } from './auth-component/signup/signup.component';
 import { ClientsComponent } from './component/clients/clients.component';
 import { MainpageComponent } from './component/mainpage/mainpage.component';
+import { VerifyEmailComponent } from './auth-component/verify-email/verify-email.component';
+import { ForgotPasswordComponent } from './auth-component/forgot-password/forgot-password.component';
 
 
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
+  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'verify-email', component: VerifyEmailComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
   {
     path: 'mainpage', component: MainpageComponent,
     children: [
