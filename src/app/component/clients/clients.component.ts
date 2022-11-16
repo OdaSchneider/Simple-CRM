@@ -18,7 +18,7 @@ export class ClientsComponent implements OnInit {
 
   ngOnInit(): void {
     this.firestore
-      .collection('client')
+      .collection('clients')
       .valueChanges({ idField: 'clientId' })
       .subscribe((changes: any) => {
         this.allClients = changes;

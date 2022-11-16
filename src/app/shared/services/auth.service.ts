@@ -127,8 +127,6 @@ export class AuthService {
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    console.log('Testing:', user.photoURL);
-
 
     this.firestore.collection(`users`).doc(user.uid).get().subscribe(ref => {
       if (!ref.exists) {
@@ -152,7 +150,7 @@ export class AuthService {
   async SignOut() {
     return this.afAuth.signOut()
       .then(() => localStorage.removeItem('user'))
-      .finally(() => this.router.navigate(['sign-in']));
+      .finally(() => this.router.navigate(['login']));
     // window.location.reload();
 
   }

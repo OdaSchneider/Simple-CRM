@@ -10,6 +10,7 @@ import { ClientsComponent } from './component/clients/clients.component';
 import { MainpageComponent } from './component/mainpage/mainpage.component';
 import { VerifyEmailComponent } from './auth-component/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './auth-component/forgot-password/forgot-password.component';
+import { ClientDetailComponent } from './component/client-detail/client-detail.component';
 
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
       {path: 'contacts', component: ContactsComponent},
       {path: 'contacts/:id', component: ContactDetailComponent},
       {path: 'clients', component: ClientsComponent},
+      {path: 'clients/:id', component: ClientDetailComponent},
     ]
   },
 ];

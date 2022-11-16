@@ -19,8 +19,8 @@ export class DialogAddClientComponent implements OnInit {
   ngOnInit(): void {
 
     this.firestore
-    .collection('contact')
-    .valueChanges({ idField: 'contactId' })
+    .collection('clients')
+    .valueChanges({ idField: 'clientId' })
     .subscribe((changes: any) => {
       this.allClients = changes;
     })

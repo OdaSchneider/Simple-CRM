@@ -53,6 +53,7 @@ import { DialogAddClientComponent } from './dialog/dialog-add-client/dialog-add-
 import { MainpageComponent } from './component/mainpage/mainpage.component';
 import { ForgotPasswordComponent } from './auth-component/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './auth-component/verify-email/verify-email.component';
+import { ClientDetailComponent } from './component/client-detail/client-detail.component';
 
 
 
@@ -78,6 +79,7 @@ import { VerifyEmailComponent } from './auth-component/verify-email/verify-email
     MainpageComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
+    ClientDetailComponent,
   ],
   imports: [
     BrowserModule,
