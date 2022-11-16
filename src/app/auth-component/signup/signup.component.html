@@ -1,12 +1,11 @@
 <div class="center-container">
   <mat-card class="login-card">
-    <mat-card-title>Registrierung</mat-card-title>
-    <mat-card-subtitle>Registrierung mit E-mail Adresse </mat-card-subtitle>
-    <mat-card-content>
-    </mat-card-content>
+    <div class="logo"><img src="./../../../assets/img/logo.png"><p>Simple CRM</p></div>
+    <mat-card-title>Signup</mat-card-title>
+    <mat-card-subtitle>Signup with your e-mail</mat-card-subtitle>
 
     <form class="login-form">
-      <mat-form-field class="full-width" appearance="fill">
+      <mat-form-field class="full-width" appearance="standard">
         <mat-label>Email</mat-label>
         <input type="email" matInput [formControl]="emailFormControl" #userEmail placeholder="z.B. mail@example.com">
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
@@ -17,7 +16,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field class="full-width" appearance="fill">
+      <mat-form-field class="full-width" appearance="standard">
         <mat-label>Passwort</mat-label>
         <input matInput matInput [formControl]="passwordFormControl" #userPwd placeholder="z.B. Password"
           [type]="hide ? 'password' : 'text'">
@@ -31,13 +30,13 @@
 
       </mat-form-field>
       <div class="center-container">
-        <button mat-raised-button color="primary" (click)="authService.SignUp(userEmail.value, userPwd.value)">Registrieren</button>
+        <button mat-raised-button class="signup-button" (click)="authService.SignUp(userEmail.value, userPwd.value)">Registrieren</button>
       </div>
 
     </form>
 
     <div class="center-container padding-top padding-bottom">
-      <span class="redirect" routerLink="/sign-in">Zurück zu Login</span>
+      <span class="auth-link" routerLink="/login">Zurück zu Login</span>
     </div>
 
   </mat-card>
