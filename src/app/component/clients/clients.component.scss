@@ -4,7 +4,7 @@
     align-items: center;
     margin-bottom: 100px;
 
-    .container-headline{
+    .container-headline {
         display: flex;
         align-items: center;
     }
@@ -19,7 +19,7 @@
         padding-bottom: 12px;
     }
 
-    p{
+    p {
         margin: unset;
         font-size: 24px;
         margin-left: 32px;
@@ -50,12 +50,12 @@
     }
 }
 
-.container-content{
+.container-content {
 
-    .is-empty-note{
+    .is-empty-note {
         cursor: default;
 
-        &:hover{
+        &:hover {
             background-color: white;
         }
     }
@@ -70,21 +70,22 @@ table {
     text-align: end;
 }
 
-th.mat-header-cell{
+th.mat-header-cell {
     background-color: #2A3647;
     color: white;
 }
 
-tr.mat-row{
+tr.mat-row {
     transition: all 225ms ease-in-out;
 }
 
-tr.mat-row:hover{
-   background-color: #E6E6E6;
-   transition: all 225ms ease-in-out;
+tr.mat-row:hover {
+    cursor: pointer;
+    background-color: #E6E6E6;
+    transition: all 225ms ease-in-out;
 }
 
-.container-active{
+.container-active {
     display: flex;
     align-items: center;
 }
