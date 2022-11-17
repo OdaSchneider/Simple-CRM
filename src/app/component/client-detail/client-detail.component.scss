@@ -1,0 +1,130 @@
+.container-pos-rel {
+    position: relative;
+    height: 100%;
+}
+
+.user-detail-head {
+    min-height: 150px;
+    background-color: #783585;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+
+    a {
+        color: white;
+        display: flex;
+        align-items: center;
+        margin-top: 16px;
+
+        &:hover {
+            color: #29ABE2;
+            font-weight: 500;
+        }
+
+        span {
+            margin-left: 4px;
+            padding-top: 2px;
+        }
+
+        .material-icons {
+            font-size: 18px;
+        }
+    }
+
+    .profil-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 34px;
+    }
+
+    .user-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        height: 100px;
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.user-detail-info {
+    a {
+        color: black;
+
+        &:hover {
+            color: #29ABE2;
+            font-weight: 500;
+        }
+    }
+
+    strong{
+        margin-right: 8px;
+    }
+
+    .mat-icon {
+        height: 16px;
+        width: 18px;
+        margin-left: 4px;
+    }
+
+    .material-icons {
+        font-size: 18px;
+    }
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container-active-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    button {
+        background-color: #2A3647;
+        margin-left: 12px;
+
+        &:hover {
+            background-color: #29ABE2;
+        }
+    }
+}
+
+.mat-card-title {
+    margin-bottom: 16px;
+}
+
+.mat-card-content {
+    margin-bottom: 8px;
+}
+
+.mat-icon-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.assignedTasks {
+    span {
+        cursor: pointer;
+
+        &:hover {
+            color: #29ABE2;
+        }
+    }
+}
+
+.adress {
+    line-height: 24px;
+}

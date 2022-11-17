@@ -1,1 +1,76 @@
-<p>client-detail works!</p>
+<div class="container-component">
+    <div class="container-pos-rel">
+        <mat-card class="user-detail-head" [ngStyle]="{'background-color': client.color}">
+            <div class="user-details">
+                <h2>{{ client.company }}</h2>
+                <a href="{{client.website}}" target="_blank">
+                    <i class="material-icons">open_in_new</i>
+                    <span>Open website</span>
+                </a>
+            </div>
+        </mat-card>
+
+        <mat-card class="mt-16 user-detail-info">
+            <mat-card-title>General Information</mat-card-title>
+            <mat-card-content>
+                <p><strong>Type of Business: </strong> {{ client.clientType }}</p>
+                <p><strong>Company Size: </strong>
+                    {{ client.companySize }}
+                    <mat-icon matSuffix *ngIf="client.companySize == 'Start-up'">rocket_launch</mat-icon>
+                    <mat-icon matSuffix *ngIf="client.companySize == 'Small Business'">storefront</mat-icon>
+                    <mat-icon matSuffix *ngIf="client.companySize == 'Medium-sized Company'">store</mat-icon>
+                    <mat-icon matSuffix *ngIf="client.companySize == 'Big Business'">business</mat-icon>
+                </p>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="mt-16 user-detail-info">
+            <mat-card-title>Contact Information</mat-card-title>
+            <div class="user-details">
+                <p>{{ client.contactFirstName }} {{ client.contactLastName }}</p>
+                <a href="mailto: {{client.email}}">{{ client.email }}</a><br>
+                <a href="tel: {{client.phone}}">{{ client.phone }}</a>
+            </div>
+
+            <button mat-icon-button [matMenuTriggerFor]="userMenu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #userMenu="matMenu">
+                <button mat-menu-item>Edit</button>
+            </mat-menu>
+        </mat-card>
+
+        <mat-card *ngIf="(client.street || client.city || client.country) !=''" class="mt-16 user-detail-info">
+            <mat-card-title>
+                Address
+            </mat-card-title>
+            <mat-card-content class="adress">
+                <span>{{ client.street }}</span> <br>
+                <span>{{ client.zipCode }} {{ client.city }}</span> <br>
+                <span>{{ client.country }}</span>
+            </mat-card-content>
+
+            <button mat-icon-button [matMenuTriggerFor]="addressMenu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #addressMenu="matMenu">
+                <button mat-menu-item (click)="editAddress()">Edit</button>
+            </mat-menu>
+        </mat-card>
+
+        <div class="container-active-bottom mt-16">
+            <button mat-mini-fab matTooltip="Back to board" matTooltipPosition="above"
+                [routerLink]="['/mainpage/board/']">
+                <mat-icon>dashboard</mat-icon>
+            </button>
+            <button mat-mini-fab matTooltip="Back to clients" matTooltipPosition="above"
+                [routerLink]="['/mainpage/clients/']">
+                <mat-icon>handshake</mat-icon>
+            </button>
+            <button mat-mini-fab matTooltip="Delete client" matTooltipPosition="above" (click)="deleteClient()"
+                [routerLink]="['/mainpage/clients/']">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
