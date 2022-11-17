@@ -25,6 +25,7 @@ export class BoardComponent implements OnInit {
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
+    console.log(this.droppedTask);
     this.getTasks();
     this.getContacts();
   }
@@ -74,6 +75,7 @@ export class BoardComponent implements OnInit {
       this.droppedTask = event.container.data[event.currentIndex];
       this.updateTasksStatus(event);
     }
+    console.log(this.droppedTask);
   }
 
 

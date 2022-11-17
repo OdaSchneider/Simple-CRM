@@ -20,7 +20,7 @@
                 </mat-menu>
             </div>
         </mat-card>
-        <mat-card class="mt-32">
+        <mat-card class="mt-16">
             <div class="task-info">
                 <div class="task-date flex mb-16">
                     <h3>Due Date:</h3>
@@ -42,7 +42,7 @@
                 </mat-menu>
             </div>
         </mat-card>
-        <mat-card class="mt-32">
+        <mat-card class="mt-16">
             <div class="task-info">
                 <div class="task-contacts">
                     <h3 class="mb-8">Assigned to:</h3>
@@ -55,7 +55,7 @@
                         <p class="flex mb-8" *ngFor="let contact of task.contacts"
                             [routerLink]="['/mainpage/contacts/' + contact.contactId]">
                             <span class="contact-logo" [ngStyle]="{'background-color': contact.color}">
-                                {{ contact.firstName.charAt(0) }} {{ contact.lastName.charAt(0) }}
+                                {{ contact.firstName.charAt(0).toUpperCase() }} {{ contact.lastName.charAt(0).toUpperCase() }}
                             </span>
                             <span class="contact-name">{{ contact.firstName }}</span>
                             <span>{{ contact.lastName }}</span>
@@ -71,7 +71,7 @@
             </div>
         </mat-card>
     
-        <div class="container-active-bottom mt-32">
+        <div class="container-active-bottom mt-16">
             <button mat-mini-fab matTooltip="Back to board" matTooltipPosition="above" [routerLink]="['/mainpage/board/']">
                 <mat-icon>dashboard</mat-icon>
             </button>
