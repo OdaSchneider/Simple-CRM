@@ -30,6 +30,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import { ColorPickerModule } from 'ngx-color-picker';
+import {MatTableModule} from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -103,6 +104,7 @@ import { ClientDetailComponent } from './component/client-detail/client-detail.c
     ReactiveFormsModule,
     DragDropModule,
     Ng2SearchPipeModule,
+    MatTableModule,
     MatButtonToggleModule,
     MatRadioModule,
     ColorPickerModule,

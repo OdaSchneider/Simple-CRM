@@ -59,43 +59,29 @@
             background-color: white;
         }
     }
+}
 
-    mat-card{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 16px 0px;
-        cursor: pointer;
-        transition: all 125ms ease-in-out;
+table {
+    width: 100%;
+}
 
-        &:hover{
-            background-color: #e6e6e6;
-            transition: all 125ms ease-in-out;
-        }
+.mat-column-companySize {
+    max-width: 50px;
+    text-align: end;
+}
 
-        span{
-            padding: 8px;
-            border-radius: 100px;
-            color: white;
-            mix-blend-mode: multiply;
-            font-size: 12px;
-            font-weight: 500;
-            margin-right: 32px;
-            width: 20px;
-            height: 20px;
-            text-align: center;
-        }
+th.mat-header-cell{
+    background-color: #2A3647;
+    color: white;
+}
 
-        p{
-            margin: unset;
-            width: 30%;
-        }
+tr.mat-row{
+    transition: all 225ms ease-in-out;
+}
 
-        .material-icons{
-            font-size: 22px;
-            cursor: pointer;
-        }
-    }
+tr.mat-row:hover{
+   background-color: #E6E6E6;
+   transition: all 225ms ease-in-out;
 }
 
 .container-active{

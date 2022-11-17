@@ -6,12 +6,6 @@
         </div>
 
         <div class="container-active">
-            <div class="searchfield">
-                <input name="search" [(ngModel)]="searchClient" placeholder="Find Client">
-                <div class="spacer"></div>
-                <mat-icon matSuffix>search</mat-icon>
-            </div>
-    
             <button mat-button (click)="openDialogAddClient()">
                 <span>Add Client</span>
                 <mat-icon matSuffix>add</mat-icon>
@@ -24,17 +18,50 @@
             You have no clients yet. Use the button above to add your clients.
         </mat-card>
 
+        <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" #input>
+        </mat-form-field>
 
-        <mat-card *ngFor="let client of allClients | filter:searchClient" [routerLink]="['/mainpage/clients/' + client.clientId]">
-            <mat-icon matSuffix *ngIf="client.companySize == 'Start-up'">rocket_launch</mat-icon>
-            <mat-icon matSuffix *ngIf="client.companySize == 'Small Business'">storefront</mat-icon>
-            <mat-icon matSuffix *ngIf="client.companySize == 'Medium-sized Company'">store</mat-icon>
-            <mat-icon matSuffix *ngIf="client.companySize == 'Big Business'">business</mat-icon>
-            <mat-icon matSuffix *ngIf="client.companySize == ''">handshake</mat-icon>
-            <p>{{ client.company}}</p>
-            <p>{{ client.contactFirstName }} {{ client.contactLastName }}</p>
-            <p>{{ client.email }}</p>
-            <p>{{ client.country }}</p>
-        </mat-card>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="company">
+                    <th mat-header-cell *matHeaderCellDef> Company </th>
+                    <td mat-cell *matCellDef="let element"> {{element.company}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="contact">
+                    <th mat-header-cell *matHeaderCellDef> Contact </th>
+                    <td mat-cell *matCellDef="let element"> {{element.contactFirstName}} {{element.contactLastName}}</td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef> E-mail </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.email }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="country">
+                    <th mat-header-cell *matHeaderCellDef> Country </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.country }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="companySize">
+                    <th mat-header-cell *matHeaderCellDef> Company size </th>
+                    <td mat-cell *matCellDef="let element">
+                        <mat-icon matSuffix *ngIf="element.companySize == 'Start-up'">rocket_launch</mat-icon>
+                        <mat-icon matSuffix *ngIf="element.companySize == 'Small Business'">storefront</mat-icon>
+                        <mat-icon matSuffix *ngIf="element.companySize == 'Medium-sized Company'">store</mat-icon>
+                        <mat-icon matSuffix *ngIf="element.companySize == 'Big Business'">business</mat-icon>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                </tr>
+            </table>
     </div>
 </div>
