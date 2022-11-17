@@ -77,3 +77,9 @@ mat-toolbar {
         font-weight: 500;
     }
 }
+
+.main-content-outlet{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

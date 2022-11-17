@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 100px;
+    margin-bottom: 32px;
 
     .container-headline {
         display: flex;
@@ -10,7 +10,7 @@
     }
 
     h1 {
-        font-size: 48px;
+        font-size: 36px;
         font-weight: bold;
         border-right: 2px solid #29ABE2;
         margin: unset;
@@ -21,7 +21,7 @@
 
     p {
         margin: unset;
-        font-size: 24px;
+        font-size: 20px;
         margin-left: 32px;
         padding-top: 12px;
         padding-bottom: 12px;
@@ -73,6 +73,10 @@ table {
 th.mat-header-cell {
     background-color: #2A3647;
     color: white;
+}
+
+td.mat-cell{
+    font-size: 12px;
 }
 
 tr.mat-row {

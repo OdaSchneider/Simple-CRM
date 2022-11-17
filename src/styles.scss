@@ -53,8 +53,10 @@ body {
 }
 
 .container-component{
-    margin: 80px 64px;
-    height: calc(100vh - 240px);
+    margin: 50px 50px;
+    height: calc(100vh - 180px);
+    max-width: 1200px;
+    width: calc(100vw - 250px);
 }
 
 mat-progress-bar{
@@ -140,3 +142,5 @@ mat-progress-bar{
 .IT{
     background-color: #005f80;
 }
+
+
