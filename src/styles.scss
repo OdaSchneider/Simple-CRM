@@ -52,8 +52,8 @@ body {
 }
 
 .container-component {
-    margin: 50px 50px;
-    height: calc(100vh - 180px);
+    margin: 50px 50px 0px 50px;
+    height: calc(100% - 120px);
     max-width: 1200px;
     width: calc(100vw - 250px);
 }
