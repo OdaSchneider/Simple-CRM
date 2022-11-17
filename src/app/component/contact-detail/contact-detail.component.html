@@ -18,7 +18,7 @@
             </div>
         </mat-card>
     
-        <mat-card *ngIf="(contact.street || contact.city || contact.country) !=''" class="mt-32 user-detail-info">
+        <mat-card *ngIf="(contact.street || contact.city || contact.country) !=''" class="mt-16 user-detail-info">
             <mat-card-title>
                 Address
             </mat-card-title>
@@ -36,7 +36,7 @@
             </mat-menu>
         </mat-card>
     
-        <mat-card class="mt-32 user-detail-info">
+        <mat-card class="mt-16 user-detail-info">
             <mat-card-title>
                 Department
             </mat-card-title>
@@ -45,7 +45,7 @@
             </mat-card-content>
         </mat-card>
 
-        <mat-card *ngIf="assignedTask" class="mt-32 user-detail-info">
+        <mat-card *ngIf="assignedTask" class="mt-16 user-detail-info">
             <mat-card-title>
                 Assigned Tasks
             </mat-card-title>
@@ -54,7 +54,7 @@
             </mat-card-content>
         </mat-card>
     
-        <div class="container-active-bottom mt-32">        
+        <div class="container-active-bottom mt-16">        
             <button mat-mini-fab matTooltip="Back to board" matTooltipPosition="above" [routerLink]="['/mainpage/board/']">
                 <mat-icon>dashboard</mat-icon>
             </button>
