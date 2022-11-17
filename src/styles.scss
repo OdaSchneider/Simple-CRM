@@ -54,11 +54,7 @@ body {
 
 .container-component{
     margin: 80px 64px;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    z-index: 10;
+    height: calc(100vh - 240px);
 }
 
 mat-progress-bar{
