@@ -19,12 +19,17 @@ export class DialogAddContactComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  save(){
+  setData(){
     this.loading = true;
     this.contact.color = '#' + Math.floor(0x1000000 * Math.random()).toString(16);
     if(this.contact.birthDate != 0){
       this.contact.birthDate = this.birthDate.getTime();
     }
+    this.save();
+  }
+
+
+  save(){
     this.firestore
     .collection('contact')
     .add(this.contact.toJSON());

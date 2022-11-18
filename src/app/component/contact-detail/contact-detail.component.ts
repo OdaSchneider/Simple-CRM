@@ -73,11 +73,11 @@ export class ContactDetailComponent implements OnInit {
   }
 
 
-  checkForTasks(){
-    if(this.tasks.length > 0){
+  checkForTasks() {
+    if (this.tasks.length > 0) {
       this.assignedTask = true;
     }
-    else{
+    else {
       this.assignedTask = false;
     }
   }
@@ -122,12 +122,12 @@ export class ContactDetailComponent implements OnInit {
   }
 
 
-  saveTask(i){
+  saveTask(i) {
     let task = new Task(this.allTasks[i]);
     let taskId = this.allTasks[i].taskId
     this.firestore
-    .collection('task')
-    .doc(taskId)
-    .update(task.toJSON())
+      .collection('task')
+      .doc(taskId)
+      .update(task.toJSON())
   }
 }

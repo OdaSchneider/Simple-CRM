@@ -34,7 +34,6 @@ export class AddTaskDetailComponent implements OnInit {
     });
 
     this.getTasks();
-    this.getContacts();
   }
 
 
@@ -49,16 +48,6 @@ export class AddTaskDetailComponent implements OnInit {
         this.date = new Date(task.dueDate).toLocaleDateString();
       }
     });
-  }
-
-
-  getContacts(){
-    this.firestore
-    .collection('contact')
-    .valueChanges({ idField: 'contactId' })
-    .subscribe((changes: any) => {
-      this.allContacts = changes;
-    })
   }
 
 
@@ -117,7 +106,6 @@ export class AddTaskDetailComponent implements OnInit {
     .doc(this.taskId)
     .update(this.task.toJSON())
   }
-
 
 
   deleteTask(){
