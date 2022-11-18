@@ -64,18 +64,19 @@
         }
     }
 
+    p{
+        display: flex;
+    }
+
     strong{
         margin-right: 8px;
     }
 
-    .mat-icon {
+    .size-icon{
+        font-size: 18px;
         height: 16px;
         width: 18px;
         margin-left: 4px;
-    }
-
-    .material-icons {
-        font-size: 18px;
     }
 }
 

@@ -55,6 +55,7 @@ import { MainpageComponent } from './component/mainpage/mainpage.component';
 import { ForgotPasswordComponent } from './auth-component/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './auth-component/verify-email/verify-email.component';
 import { ClientDetailComponent } from './component/client-detail/client-detail.component';
+import { DialogEditClientNameComponent } from './dialog/dialog-edit-client-name/dialog-edit-client-name.component';
 
 
 
@@ -81,6 +82,7 @@ import { ClientDetailComponent } from './component/client-detail/client-detail.c
     ForgotPasswordComponent,
     VerifyEmailComponent,
     ClientDetailComponent,
+    DialogEditClientNameComponent,
   ],
   imports: [
     BrowserModule,

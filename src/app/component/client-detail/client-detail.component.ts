@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DialogEditClientNameComponent } from 'src/app/dialog/dialog-edit-client-name/dialog-edit-client-name.component';
 import { Client } from 'src/models/client.class';
 
 @Component({
@@ -44,7 +45,7 @@ export class ClientDetailComponent implements OnInit {
   deleteClient() {
     this
       .firestore
-      .collection('contact')
+      .collection('clients')
       .doc(this.clientId)
       .delete();
     this.router.navigate(['mainpage/clients']);
@@ -52,7 +53,23 @@ export class ClientDetailComponent implements OnInit {
 
 
   editAddress(){
-    
+
   }
 
+
+  editContact(){
+
+  }
+
+
+  editGeneralInfo(){
+
+  }
+
+
+  editCompany(){
+    let dialog = this.dialog.open(DialogEditClientNameComponent);
+    dialog.componentInstance.client = new Client(this.client.toJSON());
+    dialog.componentInstance.clientId = this.clientId;
+  }
 }

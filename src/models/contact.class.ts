@@ -39,7 +39,7 @@ export class Contact {
             zipCode: this.zipCode,
             city: this.city,
             country: this.country,
-            color: this.color
+            color: this.color,
         };
     }
 }
